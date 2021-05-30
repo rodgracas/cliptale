@@ -1,0 +1,17 @@
+{
+  "name": "cliptale",
+  "version": "1.0.0",
+  "description": "Script to return instagram user stories - Clipping",
+  "main": "src/clipping.js",
+  "scripts": {
+    "start": "node src/clipping.js"
+  },
+  "keywords": [],
+  "author": "Rodrigo Graças",
+  "license": "MIT",
+  "dependencies": {
+    "atob": "2.1.2",
+    "fs-extra": "9.0.1",
+    "puppeteer": "9.1.1"
+  }
+}
