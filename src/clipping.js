@@ -11,6 +11,7 @@ const selectors = {
     username: 'input[name="username"]',
     password: 'input[name="password"]',
     loginSubmitBtn: "button[type='submit']",
+    searchInput: "nav input",
     userAvatar: '[data-testid="user-avatar"]'
 };
 
@@ -21,6 +22,15 @@ const loginCredentials = {
 
 const DEBUG = true;
 
+const closeCookiesDialog = async (page) => {
+    console.log("Skipping cookies dialog...");
+    await page.$("[role=dialog]");
+    const buttons = await page.$$("button");
+    
+    await buttons[0].click();
+    await page.waitForTimeout(2000);
+}
+
 (async () => {
     const browser = await puppeteer.launch({ headless: !DEBUG, args: ['--start-maximized'] });
     const page = await browser.newPage();
@@ -28,13 +38,7 @@ const DEBUG = true;
     await page.setViewport({ width: 1366, height: 768 });
     await page.goto(INSTAGRAM_URL);
 
-    const dialog = await page.$("[role=dialog]");
-
-    if (dialog) {
-        console.log("Skipping cookies...");
-        const buttons = await page.$$("button");
-        await buttons[0].click();
-    }
+    await closeCookiesDialog(page);
 
     // Enter username
     await page.waitForSelector(selectors.username);
@@ -55,7 +59,7 @@ const DEBUG = true;
     await page.waitForSelector(selectors.loginSubmitBtn);
     await page.click(selectors.loginSubmitBtn);
 
-    await page.waitForSelector('input[placeholder="Search"]');
+    await page.waitForSelector(selectors.searchInput);
 
     await ensureDir(DAILY_FOLDER_NAME);
 
