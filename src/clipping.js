@@ -8,6 +8,7 @@ const INSTAGRAM_URL = "https://www.instagram.com";
 const DAILY_FOLDER_NAME = getFormattedDate(new Date());
 
 const selectors = {
+    cookiesDialog: "[role=dialog]",
     username: 'input[name="username"]',
     password: 'input[name="password"]',
     loginSubmitBtn: "button[type='submit']",
@@ -24,29 +25,15 @@ const DEBUG = false;
 
 const closeCookiesDialog = async (page) => {
     console.log("Skipping cookies dialog...");
-    await page.$("[role=dialog]");
+    await page.$(selectors.cookiesDialog);
     const buttons = await page.$$("button");
     
+    // Click first button (Accept) on cookies dialog and waits for dialog to close
     await buttons[0].click();
-    await page.waitForTimeout(2000);
+    await page.waitForSelector(selectors.cookiesDialog, {hidden: true});
 }
 
-(async () => {
-    const browser = await puppeteer.launch({ headless: !DEBUG, args: ['--start-maximized'] });
-    const page = await browser.newPage();
-
-    if (!DEBUG) {
-        // Running in headless mode fails to load Instagram (https://github.com/puppeteer/puppeteer/issues/6318)
-        // Sets user agent
-        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36');
-    }
-
-    await page.setViewport({ width: 1366, height: 768 });
-    await page.goto(INSTAGRAM_URL);
-
-    await closeCookiesDialog(page);
-
-    // Enter username
+const login = async (page) => {
     await page.waitForSelector(selectors.username);
 
     console.log("Typing username...");
@@ -64,6 +51,23 @@ const closeCookiesDialog = async (page) => {
     console.log("Submit login...");
     await page.waitForSelector(selectors.loginSubmitBtn);
     await page.click(selectors.loginSubmitBtn);
+}
+
+(async () => {
+    const browser = await puppeteer.launch({ headless: !DEBUG, args: ['--start-maximized'] });
+    const page = await browser.newPage();
+
+    if (!DEBUG) {
+        // Running in headless mode fails to load Instagram (https://github.com/puppeteer/puppeteer/issues/6318)
+        // Sets user agent
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36');
+    }
+
+    await page.setViewport({ width: 1366, height: 768 });
+    await page.goto(INSTAGRAM_URL);
+
+    await closeCookiesDialog(page);
+    await login(page);
 
     await page.waitForSelector(selectors.searchInput);
 
