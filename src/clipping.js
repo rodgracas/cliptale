@@ -20,7 +20,7 @@ const loginCredentials = {
     password: "password",
 };
 
-const DEBUG = true;
+const DEBUG = false;
 
 const closeCookiesDialog = async (page) => {
     console.log("Skipping cookies dialog...");
@@ -34,6 +34,12 @@ const closeCookiesDialog = async (page) => {
 (async () => {
     const browser = await puppeteer.launch({ headless: !DEBUG, args: ['--start-maximized'] });
     const page = await browser.newPage();
+
+    if (!DEBUG) {
+        // Running in headless mode fails to load Instagram (https://github.com/puppeteer/puppeteer/issues/6318)
+        // Sets user agent
+        await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36');
+    }
 
     await page.setViewport({ width: 1366, height: 768 });
     await page.goto(INSTAGRAM_URL);
