@@ -1,7 +1,7 @@
 const puppeteer = require("puppeteer");
 const { ensureDir } = require("fs-extra");
 const { getFormattedDate } = require("./utils");
-
+const { IG_USERNAME, IG_PASSWORD } = require('./config');
 const users = require("../data/users.json");
 
 const INSTAGRAM_URL = "https://www.instagram.com";
@@ -14,11 +14,6 @@ const selectors = {
     loginSubmitBtn: "button[type='submit']",
     searchInput: "nav input",
     userAvatar: '[data-testid="user-avatar"]'
-};
-
-const loginCredentials = {
-    username: "username",
-    password: "password",
 };
 
 const DEBUG = false;
@@ -39,13 +34,14 @@ const login = async (page) => {
     console.log("Typing username...");
     const username = await page.$(selectors.username);
     await username.focus();
-    await username.type(loginCredentials.username);
+
+    await username.type(IG_USERNAME);
 
     // Enter password
     console.log("Typing password...");
     const password = await page.$(selectors.password);
     await password.focus();
-    await password.type(loginCredentials.password);
+    await password.type(IG_PASSWORD);
 
     // Click submit button
     console.log("Submit login...");
@@ -63,7 +59,6 @@ const login = async (page) => {
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.36');
     }
 
-    await page.setViewport({ width: 1366, height: 768 });
     await page.goto(INSTAGRAM_URL);
 
     await closeCookiesDialog(page);
