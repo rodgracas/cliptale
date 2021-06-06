@@ -49,7 +49,8 @@ npm start
 ## Next steps
 
 - [x] Run in headless mode
-- [ ] Add prettier/eslint
+- [x] Add Prettier
+- [ ] Add Eslint
 - [ ] Write tests
 - [ ] Typescript support
 - [ ] Create web application

@@ -1,18 +1,21 @@
 {
-  "name": "cliptale",
-  "version": "1.0.0",
-  "description": "Script to return instagram user stories - Clipping",
-  "main": "src/clipping.js",
-  "scripts": {
-    "start": "node src/clipping.js"
-  },
-  "keywords": [],
-  "author": "Rodrigo Graças",
-  "license": "MIT",
-  "dependencies": {
-    "atob": "2.1.2",
-    "dotenv": "10.0.0",
-    "fs-extra": "9.0.1",
-    "puppeteer": "9.1.1"
-  }
+	"name": "cliptale",
+	"version": "1.0.0",
+	"description": "Automate your Instagram stories clipping using Puppeteer.",
+	"main": "src/clipping.js",
+	"scripts": {
+		"start": "node src/clipping.js"
+	},
+	"keywords": [],
+	"author": "Rodrigo Graças",
+	"license": "MIT",
+	"dependencies": {
+		"atob": "2.1.2",
+		"dotenv": "10.0.0",
+		"fs-extra": "9.0.1",
+		"puppeteer": "9.1.1"
+	},
+	"devDependencies": {
+		"prettier": "2.3.1"
+	}
 }
