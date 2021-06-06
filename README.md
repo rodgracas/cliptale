@@ -17,7 +17,7 @@ cd cliptale
 ### Instagram credentials
 
 ```bash
-# Create a `.env` file in project root.
+# Create a .env file in project root.
 cp .env.sample .env
 ```
 
@@ -41,12 +41,10 @@ npm install
 ## Run
 
 ```bash
-# Run cliptale
 npm start
 ```
 
 > **Note**: By default `cliptale` runs in headless mode. To run in headfull mode, set `DEBUG` variable to `true` on `clipping.js` file.
-
 
 ## Next steps
 
@@ -55,3 +53,17 @@ npm start
 - [ ] Write tests
 - [ ] Typescript support
 - [ ] Create web application
+
+## Contributing
+
+Contributions are welcome 😀 This is my first open-source project on Github, so I would be very grateful to share your thoughts on this project, solve any issues and receive your feedback for improvements or enhancements.
+
+When contributing to this repository, please first discuss the change you wish to make by opening an issue.
+
+### Pull Request Process
+
+1. Fork the repo on GitHub
+2. Clone the forked repo to your machine
+3. Commit changes to your own branch
+4. Push your work onto your forked repository
+5. Submit a Pull request so that I can review your changes
