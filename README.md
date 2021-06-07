@@ -2,6 +2,20 @@
 
 Automate your Instagram stories clipping using Puppeteer.
 
+## Table of contents
+
+- [Cliptale 📎](#cliptale-)
+  - [Table of contents](#table-of-contents)
+  - [Set up](#set-up)
+    - [Instagram credentials](#instagram-credentials)
+    - [Instagram profile users](#instagram-profile-users)
+  - [Install](#install)
+  - [Run](#run)
+  - [Next steps](#next-steps)
+  - [VS Code](#vs-code)
+  - [Contributing](#contributing)
+    - [Pull Request Process](#pull-request-process)
+
 ## Set up
 
 Open your terminal and run the following commands:
@@ -51,9 +65,23 @@ npm start
 - [x] Run in headless mode
 - [x] Add Prettier
 - [ ] Add Eslint
+- [ ] Create API
 - [ ] Write tests
 - [ ] Typescript support
 - [ ] Create web application
+
+## VS Code
+
+`cliptale` has a `.vscode` folder setup with some default settings and recommended extensions for VS Code editor.
+
+To start using these settings, open your terminal and run:
+
+```bash
+# In root
+cp .vscode/settings.json.default .vscode/settings.json
+```
+
+You can change your `settings.json` as you wish since they will not be tracked on Git. If you want to add some changes to the default settings, please feel free to add on the `settings.json.default` file.
 
 ## Contributing
 
