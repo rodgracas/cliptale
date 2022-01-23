@@ -1,12 +1,24 @@
 # Cliptale 📎
 
-> _clip_ (from _clipping_) + _tale_ (from _tales_ as in Instagram stories)
+> - Combination of _clipping_ (method to clip off something) + _tales_ (stories - Instagram)
 
-Automate your Instagram stories clipping using [Puppeteer](https://pptr.dev/).
+Automate your Instagram stories clipping using [Puppeteer](https://pptr.dev/).§§
+
+## The problem we try to solve
+
+*Why _clipping_ in Marketing?*
+
+Since Instagram stories have a period of 24 hours, _clipping_ allows you to record this content to later be shared with the customer. It can also be considered as a consumer analysis tool, often referred to as _target_.
+
+## The solution
+
+_cliptale_ automates the clipping of Instagram stories, making this process faster, easier and more efficient. Just provide a list of IG profiles, and _cliptale_ will return the current available stories content in `.jpeg` format, and saved them into a dedicated folder.
 
 ## Table of contents
 
 - [Cliptale 📎](#cliptale-)
+  - [The problem we try to solve](#the-problem-we-try-to-solve)
+  - [The solution](#the-solution)
   - [Table of contents](#table-of-contents)
   - [Set up](#set-up)
     - [Instagram credentials](#instagram-credentials)
