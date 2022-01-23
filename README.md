@@ -1,6 +1,8 @@
 # Cliptale 📎
 
-Automate your Instagram stories clipping using Puppeteer.
+> _clip_ (from _clipping_) + _tale_ (from _tales_ as in Instagram stories)
+
+Automate your Instagram stories clipping using [Puppeteer](https://pptr.dev/).
 
 ## Table of contents
 
