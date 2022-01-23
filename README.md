@@ -2,7 +2,7 @@
 
 > - Combination of _clipping_ (method to clip off something) + _tales_ (stories - Instagram)
 
-Automate your Instagram stories clipping using [Puppeteer](https://pptr.dev/).§§
+Automate your Instagram stories clipping using [Puppeteer](https://pptr.dev/).
 
 ## The problem we try to solve
 
