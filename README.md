@@ -4,11 +4,13 @@
 
 Automate your Instagram stories clipping using [Puppeteer](https://pptr.dev/).
 
-## The problem we try to solve
-
-*Why _clipping_ in Marketing?*
+**What is _clipping_ in Marketing?**
 
 Since Instagram stories have a period of 24 hours, _clipping_ allows you to record this content to later be shared with the customer. It can also be considered as a consumer analysis tool, often referred to as _target_.
+
+## The problem we try to solve
+
+As a Campaign Manager, with several campaigns in hand with different IG profiles, it takes a lot of time to run each account and perform the clipping.
 
 ## The solution
 
